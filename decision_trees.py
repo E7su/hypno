@@ -20,4 +20,4 @@ clf = DecisionTreeClassifier(random_state=241)
 clf.fit(data, Y)  # decision tree learning
 
 importances = clf.feature_importances_  # find feature importance
-print importances  # Age Fare
+print importances  # Sex Fare
