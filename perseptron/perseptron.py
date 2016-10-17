@@ -26,7 +26,7 @@ print clf
 predictions = clf.predict(X_test)
 # print clf.score(X_test, y_test)  # 0.665
 accuracy_before = accuracy_score(y_test, predictions)  # 0.665
-print 'Accuracy beforenormalization: ', accuracy_before
+print 'Accuracy before normalization: ', accuracy_before
 
 # Normalize training and a test sample using StandardScaler class.
 scaler = StandardScaler()
