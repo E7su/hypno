@@ -7,8 +7,8 @@ from sklearn.cross_validation import KFold, cross_val_score
 from sklearn.neighbors import KNeighborsClassifier
 
 data = pandas.read_csv('wine.data', index_col=None, header=None)
-classes = data[0]  # class recorded is in the first column (three variants)
-sign = data.ix[:, 1:].copy()  # sign is in the columns of the second to last (more about sign in wine.name)
+classes = data[0]  # class recorded in the first column (three variants)
+sign = data.ix[:, 1:].copy()  # sign in the columns of the second to last (more about sign in wine.name)
 
 # Evaluation of the quality necessary to carry out the method of cross - validation for 5 fold.
 # Create partitions generator that mixes the sample before forming units (shuffle = True).
@@ -22,7 +22,7 @@ cv_accuracy = [
     cross_val_score(estimator=KNeighborsClassifier(n_neighbors=k), X=sign, y=classes, cv=kf).mean()
     for k in range(1, 51)]
 
-print 'Classification accuracy:'
+print 'Classification accuracy: '
 print cv_accuracy
 answer = ['', '', '', '']
 # Value of k to obtain optimum quantity.
@@ -38,7 +38,7 @@ scaled_cv_accuracy = [
     cross_val_score(estimator=KNeighborsClassifier(n_neighbors=k), X=scaled_sign, y=classes, cv=kf).mean()
     for k in range(1, 51)]
 
-print 'Scaled classification accuracy'
+print 'Scaled classification accuracy: '
 print scaled_cv_accuracy
 
 # Optimal k after bringing signs to the same scale
